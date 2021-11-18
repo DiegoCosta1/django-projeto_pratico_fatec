@@ -1,0 +1,102 @@
+{% load static %}
+{% include 'extend/head.html' with head_title="Sobre o Projeto" %}
+<!DOCTYPE html>
+<html>
+
+<body class="bg-light active">
+    <div class="wrapper">
+        <div class="section">
+            <!-- Header -->
+            {% include 'extend/header.html' %}
+
+            <main role="main" class="p-2 bg-light">
+                <!-- Content -->
+                <section class="jumbotron text-center bg-light my-5">
+                    <div class="align-middle">
+                        <h1 class="jumbotron-heading">Sobre o projeto</h1>
+                        <p class="lead">Esse é um projeto avaliativo da disciplina de 
+                            <strong>Tópicos Especiais em Informática</strong> ministrada por
+                            <strong>Fabrício Henrique</strong>.<br />
+                            A aplicação tem um tema de "loja virtual" para exibição de alguns produtos de música e filmes.<br />
+                            Entre todas as tecnologias e linguagens utilizadas na criação do aplicativo estão:</p><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/python.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                Python
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/django.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                Django
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/html5.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                HTML 5
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/css3.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                CSS 3
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/bootstrap4.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                Bootstrap 4
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/jquery.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                JQuery
+                            </div>
+                        </div><br />
+                        <div class="row pr-5">
+                            <div class="col text-right">
+                                <img width="25px" height="25px" src="{% static 'img/logo/postgresql.png' %}"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col align-self-center text-left pl-0">
+                                PostgreSQL
+                            </div>
+                        </div><br />
+                        <p class="lead">Aluno: <strong>Diego Gabriel da Costa</strong> • RA: 2840481911010</p><br />
+
+                        <small class="text-muted"><strong>Fatec Ribeirão Preto</strong> 2021/2.</small>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Sidebar menu -->
+        {% include 'extend/sidebar.html' with active_page="sobre" %}
+
+    </div>
+
+    <!-- Footer -->
+    {% include 'extend/footer.html' %}
+    <script src="{% static 'js/sidebar.js' %}" type="text/javascript"></script>
+</body>
+</html>

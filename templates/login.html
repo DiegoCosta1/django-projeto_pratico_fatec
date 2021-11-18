@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+{% include 'extend/head.html' with head_title="Login"%}
+
+<body class="bg-light">
+    <div class="text-center my-5 py-5 align-items-md-center d-flex justify-content-center">
+        <div style="width: 250px; ">
+            <form action="{% url 'login' %}" method="POST" class="form-signin">
+                {% csrf_token %}
+                <h1 class="h3 mb-4 font-weight-normal">Fazer login</h1>
+                {% include 'extend/alert.html' %}
+
+                <div class="mb-2">
+                    <label for="username" class="sr-only">Nome de usuário</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Nome de usuário"
+                        autofocus="" required>
+                </div>
+                <div class="mb-5">
+                    <label for="password" class="sr-only">Senha</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Senha"
+                        required>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+            <p class="my-3 text-muted"><a href="{% url 'signup' %}">Não tem uma conta? Criar conta</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,6 +9,7 @@
             height: 100%;
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden !important; /* Hide scrollbars */
         }
 
         * {
@@ -30,6 +31,9 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+
+            /* Remove white blur border and overflow */
+            transform: scale(1.1); 
         }
 
         /* Position text in the middle of the page/image */
@@ -58,7 +62,7 @@
 
     <div class="bg-text py-4">
         <small class="py-5">Wait. That's illegal.</small>
-        <h1 style="font-size:50px" class="pt-5 pb-4">Essa funcionalidade não está disponível!</h1>
+        <h1 style="font-size:50px" class="pt-5 pb-4">Erro: essa funcionalidade não está disponível!</h1>
         <a class="text-none" href="{% url 'index' %}">Retornar a página principal</a>
     </div>
 

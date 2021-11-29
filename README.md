@@ -6,7 +6,7 @@ Aluno: [Diego Costa](https://github.com/DiegoCosta1).
 O arquivo `manage.py` é utilizado para rodar vários comandos, incluse para poder subir o servidor, como no exemplo abaixo:
 `projeto_pratico> python .\manage.py runserver` <em>(obs.: é importante o cmd/terminal estar localizado no diretório <em>projeto_pratico</em> ou então precisará especificar o caminho direto para o arquivo manage.py)</em><br/><br/>
 Caso queira conhecer a lista de comandos disponíveis peça uma ajuda ao python:<br/>
-`projeto_pratico> python .\manage.py runserver`
+`projeto_pratico> python .\manage.py help`
 
 Após a inicialização do servidor, podemos observar a seguinte mensagem que deve aparecer no terminal:<br/>
 ```

@@ -59,10 +59,10 @@ def login(request):
         password = request.POST['password']
 
         # Validações
-        if isEmpty(username):
+        if is_empty(username):
             messages.error(request,'Erro: o nome não pode ficar vazio')
             return redirect('login')
-        if isEmpty(password):
+        if is_empty(password):
             messages.error(request,'Erro: as senhas não podem ficar vazias')
             return redirect('login')
         if not User.objects.filter(username=username).exists():
@@ -95,13 +95,13 @@ def signup(request):
         password2 = request.POST['password2']
 
         # Validações
-        if isEmpty(username) or isEmpty(first_name):
+        if is_empty(username) or is_empty(first_name):
             messages.error(request,'Erro: o nome não pode ficar vazio')
             return redirect('signup')
-        if isEmpty(email):
+        if is_empty(email):
             messages.error(request,'Erro: o e-mail não pode ficar vazio')
             return redirect('signup')
-        if isEmpty(password) or isEmpty(password2):
+        if is_empty(password) or is_empty(password2):
             messages.error(request,'Erro: as senhas não podem ficar vazias')
             return redirect('signup')
         if password != password2:
@@ -330,10 +330,103 @@ def export_all_data(request):
 
 @staff_member_required(login_url='login')
 def import_json_data(request):
-    return render(request, 'errorPage.html')
+    if (request.method == 'POST'):
+        json_file = request.POST.get('json_content')
+        
+        if (is_json(json_file)):
+            json_file = json.loads(json_file)
+
+            any_album_imported = False
+            any_movie_imported = False
+
+            # Salva Álbuns presentes no json
+            if 'Album' in json_file:
+                for album in json_file['Album']:
+                    if 'title' not in album['fields']:
+                        messages.error(request,'Erro: Album não tem um título válido')
+                        continue
+                    elif 'artist' not in album['fields']:
+                        messages.error(request,'Erro: Album não tem nome de artista válido')
+                        continue
+                    elif 'art' not in album['fields']:
+                        messages.error(request,'Erro: Album não tem uma arte válida')
+                        continue
+                    elif 'genre' not in album['fields']:
+                        messages.error(request,'Erro: Album não tem gênero válido')
+                        continue
+                    elif ('price' not in album['fields']) or (float(album['fields']['price']) < 0):
+                        messages.error(request,'Erro: Album não tem preço válido')
+                        continue
+                    elif 'year' not in album['fields']:
+                        messages.error(request,'Erro: Album não tem ano de lançamento válido')
+                        continue
+                    else:
+                        album_form = AlbumForm(None).save(commit=False)
+                        album_form.title = album['fields']['title']
+                        album_form.artist = album['fields']['artist']
+                        album_form.art = album['fields']['art']
+                        album_form.genre = album['fields']['genre']
+                        album_form.price = album['fields']['price']
+                        album_form.year = album['fields']['year']
+                        album_form.save()
+                        any_album_imported = True
+        
+            # Salva Filmes presentes no json
+            if 'Movie' in json_file:
+                for movie in json_file['Movie']:
+                    if 'title' not in movie['fields']:
+                        messages.error(request,'Erro: Filme não tem um título válido')
+                        continue
+                    elif 'director' not in movie['fields']:
+                        messages.error(request,'Erro: Filme não tem nome de diretor válido')
+                        continue
+                    elif 'art' not in movie['fields']:
+                        messages.error(request,'Erro: Filme não tem uma arte válida')
+                        continue
+                    elif 'genre' not in movie['fields']:
+                        messages.error(request,'Erro: Filme não tem gênero válido')
+                        continue
+                    elif ('price' not in movie['fields']) or (float(movie['fields']['price']) < 0):
+                        messages.error(request,'Erro: Filme não tem preço válido')
+                        continue
+                    elif 'year' not in movie['fields']:
+                        messages.error(request,'Erro: Filme não tem ano de lançamento válido')
+                        continue
+                    else:
+                        movie_form = MovieForm(None).save(commit=False)
+                        movie_form.title = movie['fields']['title']
+                        movie_form.director = movie['fields']['director']
+                        movie_form.art = movie['fields']['art']
+                        movie_form.genre = movie['fields']['genre']
+                        movie_form.price = movie['fields']['price']
+                        movie_form.year = movie['fields']['year']
+                        movie_form.save()
+                        any_movie_imported = True
+            
+            if any_album_imported and any_movie_imported:
+                messages.success(request,'Álbum(s) e Filme(s) salvo(s) com sucesso')
+            elif any_album_imported and not any_movie_imported:
+                messages.success(request,'Álbum(s) salvo(s) com sucesso')
+            elif not any_album_imported and any_movie_imported:
+                messages.success(request,'Filme(s) salvo(s) com sucesso')
+            else:
+                messages.warning(request,'Nenhum dado foi salvo com sucesso')
+            # return JsonResponse(jsonfile)
+        else:
+            messages.error(request,'Erro: texto não é um json válido')
+    # if post, read json, search array for 'Album', for each object, save in model 'Album'... next Movie and user (just copy the password)
+    # return JsonResponse(json)
+    return render(request, 'form/import.html')
 
 def error_page(request):
     return render(request, 'errorPage.html')
 
-def isEmpty(str):
+def is_empty(str):
     return not str.strip()
+
+def is_json(str):
+    try:
+        json.loads(str)
+    except ValueError as e:
+        return False
+    return True

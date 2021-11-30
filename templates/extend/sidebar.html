@@ -87,7 +87,7 @@
 
         <!-- Donwload de dados -->
         {% if user.is_superuser %}
-            {% if active_page == "list_user" %}
+            {% if active_page == "export_data" %}
                 <li><a href="{% url 'export_all_data' %}" class="active" target="_blank">
             {% else %}
                 <li><a href="{% url 'export_all_data' %}" target="_blank">
@@ -101,7 +101,7 @@
 
         <!-- Importar dados -->
         {% if user.is_superuser %}
-            {% if active_page == "list_user" %}
+            {% if active_page == "import_data" %}
                 <li><a href="{% url 'import_json_data' %}" class="active">
             {% else %}
                 <li><a href="{% url 'import_json_data' %}">

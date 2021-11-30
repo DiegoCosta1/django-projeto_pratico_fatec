@@ -1,13 +1,16 @@
-import json
+import io, json, zipfile
+from zipfile import ZipFile
 from django.db import models
 from django.db.models.query import InstanceCheckMeta
 from django.http.request import validate_host
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
+from django.core import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponse, StreamingHttpResponse
 from django.contrib import admin, auth, messages
 from datetime import datetime
 from app_pratico.models import Album, Movie
@@ -288,6 +291,46 @@ def delete_movie(request, id):
 
     messages.success(request, 'Álbum "'+ title +'" removido com sucesso')
     return redirect('list_movie')
+
+@staff_member_required(login_url='login')
+def export_all_data(request):
+    # Lista de todos modelos
+    Album_serialize = serializers.serialize("json", Album.objects.all().order_by('id'))
+
+    Movie_serialize = serializers.serialize("json", Movie.objects.all().order_by('id'))
+
+    User_serialize = serializers.serialize("json", User.objects.all().order_by('id'))
+
+    # Data em formato json
+    data = {
+        "Album" : json.loads(Album_serialize),
+        "Movie" : json.loads(Movie_serialize),
+        "User" : json.loads(User_serialize),
+        "Data de exportação" : datetime.now().isoformat()
+    }
+
+# todo: downloading corrupted ZIP File
+    # Arquivo binário
+    # in_memory_zip = io.BytesIO()
+
+    # with ZipFile(in_memory_zip, mode='w') as zip_file:
+    #     with zip_file.open("data.json", 'w') as json_file:
+    #         data_bytes = json.dumps(data, ensure_ascii=False, indent=4).encode('utf-8')
+    #         json_file.write(data_bytes)
+    
+    # response = HttpResponse(in_memory_zip, content_type='application/force-download')
+    # response['Content-Disposition'] = 'attachment; filename="%s"' % 'dados_exportados.zip'
+
+    response = HttpResponse(json.dumps(data, ensure_ascii=False, indent=4).encode('utf-8'), 
+        content_type='application/force-download')
+    response['Content-Disposition'] = 'attachment; filename="%s"' % 'dados_exportados.js'
+
+    return JsonResponse(data)
+    # return response
+
+@staff_member_required(login_url='login')
+def import_json_data(request):
+    return render(request, 'errorPage.html')
 
 def error_page(request):
     return render(request, 'errorPage.html')

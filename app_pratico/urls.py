@@ -35,4 +35,10 @@ urlpatterns = [
     path('create/movie', views.create_movie, name='create_movie'),
     path('update/movie/<int:id>/', views.update_movie, name='update_movie'),
     path('delete/movie/<int:id>/', views.delete_movie, name='delete_movie'),
+
+    # Export data to Zip
+    path('export', views.export_all_data, name='export_all_data'),
+
+    # Import Json to data
+    path('import', views.import_json_data, name='import_json_data'),
 ]

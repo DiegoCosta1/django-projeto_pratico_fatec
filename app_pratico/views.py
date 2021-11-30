@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core import serializers
-from django.http import HttpResponse, StreamingHttpResponse
+from django.http import HttpResponse, StreamingHttpResponse, FileResponse
 from django.contrib import admin, auth, messages
 from datetime import datetime
 from app_pratico.models import Album, Movie
@@ -294,7 +294,7 @@ def delete_movie(request, id):
 
 @staff_member_required(login_url='login')
 def export_all_data(request):
-    # Lista de todos modelos
+    # Carrega lista de todos modelos
     Album_serialize = serializers.serialize("json", Album.objects.all().order_by('id'))
 
     Movie_serialize = serializers.serialize("json", Movie.objects.all().order_by('id'))
@@ -306,33 +306,31 @@ def export_all_data(request):
         "Album" : json.loads(Album_serialize),
         "Movie" : json.loads(Movie_serialize),
         "User" : json.loads(User_serialize),
-        "Data de exportação" : datetime.now().isoformat()
+        "Data de exportacao" : datetime.now().isoformat()
     }
 
-# todo: downloading corrupted ZIP File
-    # Arquivo binário
-    # in_memory_zip = io.BytesIO()
+    # Reposta JSON
+    # return JsonResponse(data)
 
-    # with ZipFile(in_memory_zip, mode='w') as zip_file:
-    #     with zip_file.open("data.json", 'w') as json_file:
-    #         data_bytes = json.dumps(data, ensure_ascii=False, indent=4).encode('utf-8')
-    #         json_file.write(data_bytes)
-    
-    # response = HttpResponse(in_memory_zip, content_type='application/force-download')
-    # response['Content-Disposition'] = 'attachment; filename="%s"' % 'dados_exportados.zip'
+    # Cria arquivo json
+    with open('data.json', 'w') as json_file:
+        json.dump(data, json_file, indent = 4)
 
-    response = HttpResponse(json.dumps(data, ensure_ascii=False, indent=4).encode('utf-8'), 
-        content_type='application/force-download')
-    response['Content-Disposition'] = 'attachment; filename="%s"' % 'dados_exportados.js'
+    # Cria zip com o arquivo json
+    zip_file = zipfile.ZipFile('dados_exportados.zip', 'w')
+    zip_file.write('data.json', compress_type=zipfile.ZIP_DEFLATED)
+    zip_file.close()
 
-    return JsonResponse(data)
-    # return response
+    dados_compactados = open('dados_exportados.zip', 'rb')
+    return FileResponse(dados_compactados)
 
 @staff_member_required(login_url='login')
 def import_json_data(request):
+    # Se método de requisição HTTP é POST
     if (request.method == 'POST'):
         json_file = request.POST.get('json_content')
         
+        # Se o JSON é válido
         if (is_json(json_file)):
             json_file = json.loads(json_file)
 
@@ -361,6 +359,7 @@ def import_json_data(request):
                         messages.error(request,'Erro: Album não tem ano de lançamento válido')
                         continue
                     else:
+                        # Se todos campos são válidos, salva um novo form
                         album_form = AlbumForm(None).save(commit=False)
                         album_form.title = album['fields']['title']
                         album_form.artist = album['fields']['artist']
@@ -393,6 +392,7 @@ def import_json_data(request):
                         messages.error(request,'Erro: Filme não tem ano de lançamento válido')
                         continue
                     else:
+                        # Se todos campos são válidos, salva um novo form
                         movie_form = MovieForm(None).save(commit=False)
                         movie_form.title = movie['fields']['title']
                         movie_form.director = movie['fields']['director']
@@ -403,6 +403,7 @@ def import_json_data(request):
                         movie_form.save()
                         any_movie_imported = True
             
+            # Informa se algum dado foi salvo
             if any_album_imported and any_movie_imported:
                 messages.success(request,'Álbum(s) e Filme(s) salvo(s) com sucesso')
             elif any_album_imported and not any_movie_imported:
@@ -411,11 +412,11 @@ def import_json_data(request):
                 messages.success(request,'Filme(s) salvo(s) com sucesso')
             else:
                 messages.warning(request,'Nenhum dado foi salvo com sucesso')
-            # return JsonResponse(jsonfile)
+
+        # Senão, json é inválido
         else:
             messages.error(request,'Erro: texto não é um json válido')
-    # if post, read json, search array for 'Album', for each object, save in model 'Album'... next Movie and user (just copy the password)
-    # return JsonResponse(json)
+
     return render(request, 'form/import.html')
 
 def error_page(request):

@@ -1,0 +1,603 @@
+{
+    "Album": [
+        {
+            "model": "app_pratico.album",
+            "pk": 1,
+            "fields": {
+                "title": "Back In Black",
+                "artist": "AC/DC",
+                "art": "img/albums/ac_dc-back_in_black.png",
+                "genre": "Hard Rock",
+                "price": "25.17",
+                "year": 1980
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 2,
+            "fields": {
+                "title": "Senjutsu",
+                "artist": "Iron Maiden",
+                "art": "img/albums/iron_maiden-senjutsu.png",
+                "genre": "Heavy Metal",
+                "price": "73.66",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 3,
+            "fields": {
+                "title": "Power Up",
+                "artist": "AC/DC",
+                "art": "img/albums/ac_dc-power_up.png",
+                "genre": "Hard Rock",
+                "price": "70.41",
+                "year": 2020
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 4,
+            "fields": {
+                "title": "Happier Than Ever",
+                "artist": "Billie Eilish",
+                "art": "img/albums/billie_eilish-happier_than_ever.png",
+                "genre": "Pop, Pop eletr\u00f4nico",
+                "price": "112.18",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 5,
+            "fields": {
+                "title": "Nevermind (30th Anniversary Super Deluxe Edition)",
+                "artist": "Nirvana",
+                "art": "img/albums/nirvana-nevermind_30th_anniversary_super_deluxe_edition.png",
+                "genre": "Grunge, Rock",
+                "price": "543.26",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 6,
+            "fields": {
+                "title": "Fortitude",
+                "artist": "Gojira",
+                "art": "img/albums/gojira-fortitude.png",
+                "genre": "Metal, Groove",
+                "price": "35.23",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 7,
+            "fields": {
+                "title": "If I Could Make It Go Quiet",
+                "artist": "girl in red",
+                "art": "img/albums/girl_in_red-if_i_could_make_it_go_quiet.png",
+                "genre": "Pop, Indie",
+                "price": "40.00",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 8,
+            "fields": {
+                "title": "Fearless (Taylor's Version)",
+                "artist": "Taylor Swift",
+                "art": "img/albums/taylor_swift-fearless_taylor_s_version.png",
+                "genre": "Pop, Country",
+                "price": "64.23",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 9,
+            "fields": {
+                "title": "Medicine at Midnight",
+                "artist": "Foo Fighters",
+                "art": "img/albums/foo_fighters-medicine_at_midnight.png",
+                "genre": "Hard Rock, Alternativo",
+                "price": "21.00",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 10,
+            "fields": {
+                "title": "An Evening with Silk Sonic",
+                "artist": "Silk Sonic",
+                "art": "img/albums/silk_sonic-an_evening_with_silk_sonic.png",
+                "genre": "Pop, Funk, Soul, R&B",
+                "price": "42.56",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 11,
+            "fields": {
+                "title": "Sour",
+                "artist": "Olivia Rodrigo",
+                "art": "img/albums/olivia_rodrigo-sour.png",
+                "genre": "Pop, Indie",
+                "price": "72.31",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 12,
+            "fields": {
+                "title": "Eventide",
+                "artist": "Reliqa",
+                "art": "img/albums/reliqa-eventide.png",
+                "genre": "Metal, Alternativo",
+                "price": "13.50",
+                "year": 2018
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 13,
+            "fields": {
+                "title": "For Those That Wish to Exist",
+                "artist": "Architects",
+                "art": "img/albums/architects-for_those_that_wish_to_exist.png",
+                "genre": "Metal, Alternativo",
+                "price": "110.10",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 14,
+            "fields": {
+                "title": "Coalesce (EP)",
+                "artist": "I Built the Sky & Jake Howsam Lowe",
+                "art": "img/albums/i_built_the_sky_&_jake_howsam_lowe-coalesce_ep.png",
+                "genre": "Metal, Instrumental",
+                "price": "144.00",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 15,
+            "fields": {
+                "title": "Vera Cruz",
+                "artist": "Edu Falaschi",
+                "art": "img/albums/edu_falaschi-vera_cruz.png",
+                "genre": "Metal, Nacional",
+                "price": "20.00",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 16,
+            "fields": {
+                "title": "The Fallen Crimson",
+                "artist": "Envy",
+                "art": "img/albums/envy-the_fallen_crimson.png",
+                "genre": "Rock, Alernativo",
+                "price": "34.11",
+                "year": 2020
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 17,
+            "fields": {
+                "title": "Eternal Blue",
+                "artist": "Spiritbox",
+                "art": "img/albums/spiritbox-eternal_blue.png",
+                "genre": "Metal, Groove, Alternativo",
+                "price": "39.00",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 18,
+            "fields": {
+                "title": "Gold & Grey",
+                "artist": "Baroness",
+                "art": "img/albums/baroness-gold_&_grey.png",
+                "genre": "Rock, Progressivo, Alternativo",
+                "price": "340.00",
+                "year": 2019
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 19,
+            "fields": {
+                "title": "Red",
+                "artist": "Baroness",
+                "art": "img/albums/baroness-red.png",
+                "genre": "Rock, Progressivo, Alternativo",
+                "price": "89.04",
+                "year": 2007
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 20,
+            "fields": {
+                "title": "Yellow & Green",
+                "artist": "Baroness",
+                "art": "img/albums/baroness-yellow_&_green.png",
+                "genre": "Rock, Progressivo, Alternativo",
+                "price": "92.30",
+                "year": 2012
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 21,
+            "fields": {
+                "title": "Purple",
+                "artist": "Baroness",
+                "art": "img/albums/baroness-purple.png",
+                "genre": "Rock, Progressivo, Alternativo",
+                "price": "96.46",
+                "year": 2015
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 22,
+            "fields": {
+                "title": "Blue Record",
+                "artist": "Baroness",
+                "art": "img/albums/baroness-blue_record.png",
+                "genre": "Rock, Progressivo, Alternativo",
+                "price": "17.83",
+                "year": 2009
+            }
+        },
+        {
+            "model": "app_pratico.album",
+            "pk": 23,
+            "fields": {
+                "title": "Cyberpunk 207\u03387 Radi\u0337o\u0338 vol. \u03364\u0334",
+                "artist": "Nina Kraviz, Bara Nova",
+                "art": "img/albums/nina_kraviz_bara_nova-cyberpunk_2077.png",
+                "genre": "OST, Eletr\u00f4nica",
+                "price": "199.99",
+                "year": 2020
+            }
+        }
+    ],
+    "Movie": [
+        {
+            "model": "app_pratico.movie",
+            "pk": 1,
+            "fields": {
+                "title": "A Noite dos Mortos Vivos",
+                "director": "George A Romero",
+                "art": "img/movies/george_a_romero-a_noite_dos_mortos_vivos.png",
+                "genre": "Terror",
+                "price": "19.80",
+                "year": 1968
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 2,
+            "fields": {
+                "title": "O Poderoso Chef\u00e3o",
+                "director": "Francis F Coppola",
+                "art": "img/movies/francis_f_coppola-o_poderoso_chefao.png",
+                "genre": "Policial, Drama",
+                "price": "19.72",
+                "year": 1972
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 3,
+            "fields": {
+                "title": "A Lista de Schindler",
+                "director": "Steven Spielberg",
+                "art": "img/movies/steven_spielberg-a_lista_de_schindler.png",
+                "genre": "Guerra, Drama",
+                "price": "30.89",
+                "year": 1993
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 4,
+            "fields": {
+                "title": "Godzilla vs Kong",
+                "director": "Adam Wingard",
+                "art": "img/movies/adam_wingard-godzilla_vs_kong.png",
+                "genre": "Fic\u00e7\u00e3o cient\u00edfica, A\u00e7\u00e3o",
+                "price": "76.90",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 5,
+            "fields": {
+                "title": "Nomadland",
+                "director": "Chlo\u00e9 Zhao",
+                "art": "img/movies/chloe_zhao-nomadland.png",
+                "genre": "Drama, faroeste",
+                "price": "24.99",
+                "year": 2022
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 6,
+            "fields": {
+                "title": "Mortal Kombat",
+                "director": "Simon McQuoid",
+                "art": "img/movies/simon_mcquoid-mortal_kombat.png",
+                "genre": "A\u00e7\u00e3o, Artes Marciais",
+                "price": "39.90",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 7,
+            "fields": {
+                "title": "Mortal Kombat Legends: A Vingan\u00e7a de Scorpion",
+                "director": "Ethan Spaulding",
+                "art": "img/movies/ethan_spaulding-mortal_kombat_legends_a_vinganca_de_scorpion.png",
+                "genre": "A\u00e7\u00e3o, Artes Marciais",
+                "price": "17.00",
+                "year": 2020
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 8,
+            "fields": {
+                "title": "Cruella",
+                "director": "Craig Gillespie",
+                "art": "img/movies/craig_gillespie-cruella.png",
+                "genre": "Drama, Com\u00e9dia",
+                "price": "121.32",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 9,
+            "fields": {
+                "title": "Infiltrado",
+                "director": "Guy Ritchie",
+                "art": "img/movies/guy_ritchie-infiltrado.png",
+                "genre": "A\u00e7\u00e3o, Suspense, Crime",
+                "price": "10.76",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 10,
+            "fields": {
+                "title": "Invoca\u00e7\u00e3o do Mal 3",
+                "director": "Michael Chaves",
+                "art": "img/movies/michael_chaves-invocacao_do_mal_3.png",
+                "genre": "Terror",
+                "price": "49.13",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 11,
+            "fields": {
+                "title": "Um Lugar Silencioso - Parte II",
+                "director": "John Krasinski",
+                "art": "img/movies/john_krasinski-um_lugar_silencioso_parte_2.png",
+                "genre": "Terror, Thriller",
+                "price": "59.06",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 12,
+            "fields": {
+                "title": "Vi\u00fava Negra",
+                "director": "Cate Shortland",
+                "art": "img/movies/cate_shortland-viuva_negra.png",
+                "genre": "A\u00e7\u00e3o, Aventura",
+                "price": "26.99",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 13,
+            "fields": {
+                "title": "Velozes e Furiosos 9",
+                "director": "Justin Lin",
+                "art": "img/movies/justin_lin-velozes_e_furiosos_9.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Crime",
+                "price": "73.41",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 14,
+            "fields": {
+                "title": "O Esquadr\u00e3o Suicida",
+                "director": "James Gunn",
+                "art": "img/movies/james_gunn-o_esquadrao_suicida.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Com\u00e9dia",
+                "price": "34.65",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 15,
+            "fields": {
+                "title": "Free Guy: Assumindo o Controle",
+                "director": "Shawn Levy",
+                "art": "img/movies/shawn_levy-free_guy_assumindo_o_controle.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Com\u00e9dia",
+                "price": "34.11",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 16,
+            "fields": {
+                "title": "Shang-Chi e a Lenda dos Dez An\u00e9is",
+                "director": "Destin Cretton",
+                "art": "img/movies/destin_cretton-shang-chi_e_a_lenda_dos_dez_aneis.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Fantasia",
+                "price": "34.46",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 17,
+            "fields": {
+                "title": "007 - Sem Tempo Para Morrer",
+                "director": "Cary Fukunaga",
+                "art": "img/movies/cary_fukunaga-007_sem_tempo_para_morrer.png",
+                "genre": "A\u00e7\u00e3o, Aventura",
+                "price": "26.15",
+                "year": 2020
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 18,
+            "fields": {
+                "title": "Duna",
+                "director": "Denis Villeneuve",
+                "art": "img/movies/denis_villeneuve-duna.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Fantasia",
+                "price": "34.26",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 19,
+            "fields": {
+                "title": "Eternos",
+                "director": "Chlo\u00e9 Zhao",
+                "art": "img/movies/chloe_zhao-eternos.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Fantasia",
+                "price": "79.42",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 21,
+            "fields": {
+                "title": "Venom: Tempo de Carnificina",
+                "director": "Andy Serkis",
+                "art": "img/movies/andy_serkis-venom_tempo_de_carnificina.png",
+                "genre": "A\u00e7\u00e3o, Aventura, Com\u00e9dia",
+                "price": "43.80",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 22,
+            "fields": {
+                "title": "Halloween Kills: O Terror Continua",
+                "director": "David Gordon Green",
+                "art": "img/movies/david_gordon_green-halloween_kills_o_terror_continua.png",
+                "genre": "Terror",
+                "price": "82.46",
+                "year": 2021
+            }
+        },
+        {
+            "model": "app_pratico.movie",
+            "pk": 23,
+            "fields": {
+                "title": "De Volta para o Futuro",
+                "director": "Robert Zemeckis",
+                "art": "img/movies/robert_zemeckis-de_volta_para_o_futuro.png",
+                "genre": "Fic\u00e7\u00e3o Cient\u00edfica",
+                "price": "15.00",
+                "year": 1985
+            }
+        }
+    ],
+    "User": [
+        {
+            "model": "auth.user",
+            "pk": 1,
+            "fields": {
+                "password": "pbkdf2_sha256$260000$59PXgMplIoicBU2SYffFsg$O0mbdDdG0pfT7w6VC1008CrsxBZZ7Lk5LMN/Dd7GJ6Y=",
+                "last_login": "2021-11-30T11:59:34.576Z",
+                "is_superuser": true,
+                "username": "diego",
+                "first_name": "Root",
+                "last_name": "",
+                "email": "diego.costa23@fatec.sp.gov.br",
+                "is_staff": true,
+                "is_active": true,
+                "date_joined": "2021-11-12T02:43:28.655Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        },
+        {
+            "model": "auth.user",
+            "pk": 7,
+            "fields": {
+                "password": "pbkdf2_sha256$260000$ZwJ2gPlbBOr7BFRLE5C7RW$EWYLluNkToCDUjLCu1Cp0pF+waqW7myK0C5qhQD6JTI=",
+                "last_login": null,
+                "is_superuser": false,
+                "username": "jsilva",
+                "first_name": "User",
+                "last_name": "",
+                "email": "joao@silva.com",
+                "is_staff": false,
+                "is_active": true,
+                "date_joined": "2021-11-14T03:14:18.113Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        },
+        {
+            "model": "auth.user",
+            "pk": 11,
+            "fields": {
+                "password": "pbkdf2_sha256$260000$tRom1IuefxS4Dz4Fckf8kP$XTDqZfXrnBfCwTafmoQqp9iiC9K6UOeXDZIoNZGudGE=",
+                "last_login": "2021-11-30T11:58:38.613Z",
+                "is_superuser": false,
+                "username": "teste",
+                "first_name": "1234",
+                "last_name": "",
+                "email": "12313@email.com",
+                "is_staff": false,
+                "is_active": true,
+                "date_joined": "2021-11-14T04:07:34.974Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        }
+    ],
+    "Data de exportacao": "2021-11-30T20:40:24.022496"
+}

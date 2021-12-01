@@ -1,5 +1,4 @@
-import io, json, zipfile
-from zipfile import ZipFile
+import json, zipfile
 from django.db import models
 from django.db.models.query import InstanceCheckMeta
 from django.http.request import validate_host
@@ -10,14 +9,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core import serializers
-from django.http import HttpResponse, StreamingHttpResponse, FileResponse
+from django.http import FileResponse
 from django.contrib import admin, auth, messages
 from datetime import datetime
 from app_pratico.models import Album, Movie
 from .forms import UserForm, AlbumForm, MovieForm
 # Create your views here.
 
-# INDEX
 @login_required(login_url='login')
 def index(request):
     albums = Album.objects.all().filter(year=datetime.now().year).order_by('title')
@@ -37,7 +35,7 @@ def store_album(request):
         'albums' : albums,
     }
     return render(request, 'store/album.html', context)
-    
+
 @login_required(login_url='login')
 def store_movie(request):
     movies = Movie.objects.all().order_by('director', '-year')
@@ -47,12 +45,10 @@ def store_movie(request):
     }
     return render(request, 'store/movie.html', context)
 
-# SOBRE
 @login_required(login_url='login')
 def sobre(request):
     return render(request, 'sobre.html')
 
-# LOGIN USUÁRIO
 def login(request):
     if request.method=='POST':
         username = request.POST['username']
@@ -80,12 +76,10 @@ def login(request):
     else:
         return render(request, 'login.html')
 
-# LOGOUT USUÁRIO
 def logout(request):
     auth.logout(request)
     return redirect('index')
 
-# CRIAR USUÁRIO
 def signup(request):
     if request.method=='POST':
         username = request.POST['username']
@@ -117,7 +111,6 @@ def signup(request):
         return redirect('login')
     return render(request, 'signup.html')
 
-# CRUD USUÁRIO
 @staff_member_required(login_url='login')
 def list_user(request):
     users = User.objects.all().order_by('id')
@@ -150,15 +143,11 @@ def delete_user(request, id):
     user = User.objects.get(id=id)
     username = user.username
 
-    # if request.method == 'POST':
     user.delete()
     
     messages.success(request, 'Usuário "'+ username +'" removido com sucesso')
     return redirect('list_user')
-    
-    # return render(request, 'delete-confirm.html', {'user': user})
 
-# CRUD ÁLBUM
 @staff_member_required(login_url='login')
 def list_album(request):
     albums = Album.objects.all().order_by('id')
@@ -187,7 +176,6 @@ def create_album(request):
     context = {
         'form': form,
     }
-
     return render(request, 'form/album.html', context)
 
 @staff_member_required(login_url='login')
@@ -212,7 +200,6 @@ def update_album(request, id):
     context = {
         'form': form,
     }
-
     return render(request, 'form/album.html', context)
 
 @staff_member_required(login_url='login')
@@ -225,7 +212,6 @@ def delete_album(request, id):
     messages.success(request, 'Álbum "'+ title +'" removido com sucesso')
     return redirect('list_album')
 
-# CRUD FILME
 @staff_member_required(login_url='login')
 def list_movie(request):
     movies = Movie.objects.all().order_by('id')
@@ -254,7 +240,6 @@ def create_movie(request):
     context = {
         'form': form,
     }
-
     return render(request, 'form/movie.html', context)
 
 @staff_member_required(login_url='login')
@@ -279,7 +264,6 @@ def update_movie(request, id):
     context = {
         'form': form,
     }
-
     return render(request, 'form/movie.html', context)
 
 @staff_member_required(login_url='login')

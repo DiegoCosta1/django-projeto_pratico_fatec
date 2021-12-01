@@ -96,6 +96,8 @@ STATICFILES_DIRS = [
 Após a configuração, foi necessário rodar o comando abaixo para que os arquivos sejam coletados de todos os caminhos específicados:<br/>
 django-projeto_pratico_fatec$ `python .\manage.py collectstatic`
 
+#### [Mais sobre arquitetura MTV](https://data-flair.training/blogs/django-mtv-architecture/)
+
 #### Filosofias
 ##### [Django](https://docs.djangoproject.com/pt-br/2.2/misc/design-philosophies/)
 ##### [Python](https://www.python.org/dev/peps/pep-0020/)
